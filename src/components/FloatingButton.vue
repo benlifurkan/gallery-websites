@@ -1,20 +1,20 @@
+<script lang="ts" setup>
+import { useImageStore } from "../stores/images";
+
+const store = useImageStore();
+</script>
+
 <template>
   <button
-    class="bg-white text-black fixed bottom-0 right-0 hidden lg:flex items-center justify-center m-6 rounded-full p-2"
+    class="fixed bottom-0 right-0 flex items-center justify-center p-2 m-6 text-black bg-white rounded-full"
+    @click="() => store.changeOrder()"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      stroke-width="2"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24">
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M4 6h16M4 12h16M4 18h16"
-      />
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M4 17a1 1 0 0 1 0-2h2l3-3l-3-3H4a1.001 1.001 0 0 1 0-2h3l4 4l4-4h2V5l4 3.001L17 11V9h-1l-3 3l3 3h1v-2l4 3l-4 3v-2h-2l-4-4l-4 4H4Z"
+      ></path>
     </svg>
   </button>
 </template>

@@ -33,7 +33,7 @@ const getProxifiedImage = (): string => {
 
 <template>
   <div
-    class="bg-center bg-cover cursor-pointer"
+    class="transition-all bg-center bg-cover cursor-pointer"
     :style="{
       backgroundImage: `url('${getProxifiedImage()}')`,
     }"
@@ -43,12 +43,12 @@ const getProxifiedImage = (): string => {
       <transition name="fade" mode="out-in">
         <div
           v-show="isOpen"
-          class="fixed z-10 flex items-center justify-center inset-0 bg-black/75"
+          class="fixed inset-0 z-10 flex items-center justify-center bg-black/75"
           @click="isOpen = false"
         >
           <div @click="(e) => e.stopPropagation()">
             <div
-              class="rounded-xl bg-cover bg-center"
+              class="bg-center bg-cover rounded-xl"
               :style="{
                 backgroundImage: `url('${getProxifiedImage()}')`,
               }"

@@ -30,7 +30,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="bg-white hover:scale-105 hover:rotate-0 transition-transform shadow-md px-4 pt-4 pb-6 space-y-2 flex flex-col"
+    class="flex flex-col px-4 pt-4 pb-6 space-y-2 transition-transform bg-white shadow-md hover:scale-105 hover:rotate-0"
     :class="getRandomRotateClass()"
   >
     <Image :src="props.image" class="h-52 w-52" />
