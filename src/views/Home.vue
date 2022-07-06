@@ -38,15 +38,14 @@ const getImagesInRandomOrder = () => {
 
 <template>
   <header class="flex flex-col items-center">
-    <h1 class="text-6xl text-center font-bold">Öykü Liva Sayar</h1>
-    <span class="font-light text-lg">'ın fotoğraf galerisi</span>
+    <h1 class="text-6xl font-bold text-center">Öykü Liva Sayar</h1>
+    <span class="text-lg font-light">'ın fotoğraf galerisi</span>
   </header>
 
-  <main class="mt-24 flex flex-wrap items-center justify-center gap-8">
+  <main class="flex flex-wrap items-center justify-center gap-8 mt-24">
     <PictureFrame
       v-for="image in getImagesInRandomOrder()"
       :image="image"
-      caption="22.06.2001"
     />
   </main>
 </template>
