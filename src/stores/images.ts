@@ -21,6 +21,12 @@ const images = [
   "https://i.imgur.com/fRnxJfJ.jpg",
   "https://i.imgur.com/orMDbgY.jpg",
   "https://i.imgur.com/EByy6f5.jpg",
+  "https://i.imgur.com/VdjZG18.jpg",
+  "https://i.imgur.com/7mwiVrq.jpg",
+  "https://i.imgur.com/ot4rJ3s.jpg",
+  "https://i.imgur.com/271WnmL.jpg",
+  "https://i.imgur.com/VFbQ5hG.jpg",
+  "https://i.imgur.com/LGYuBwr.jpg",
 ];
 
 export const useImageStore = defineStore("counter", {
