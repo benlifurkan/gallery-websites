@@ -39,6 +39,12 @@ const getProxifiedImage = (): string => {
     }"
     @click="isOpen = true"
   >
+    <img
+      :src="getProxifiedImage()"
+      alt="gallery image"
+      class="invisible md:hidden"
+    />
+
     <Teleport to="body">
       <transition name="fade" mode="out-in">
         <div
