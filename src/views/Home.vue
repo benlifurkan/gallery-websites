@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { onMounted } from "vue";
+import { onBeforeMount } from "vue";
 import { useImageStore } from "../stores/images";
 
 // Components
 import PictureFrame from "../components/PictureFrame.vue";
 
 const store = useImageStore();
-onMounted(() => {
+onBeforeMount(() => {
   store.changeOrder();
 });
 </script>
