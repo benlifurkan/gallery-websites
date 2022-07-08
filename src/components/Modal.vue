@@ -15,6 +15,10 @@ const getProxifiedImage = computed(
   () => `https://proxy.duckduckgo.com/iu/?u=${encodeURIComponent(modal.image)}`
 );
 
+const imageIndexInStore = computed(() => {
+  return imageStore.images.findIndex((item) => item === modal.image);
+});
+
 const handlePagination = (
   event: MouseEvent,
   direction: "previous" | "next"
@@ -22,9 +26,7 @@ const handlePagination = (
   event.stopPropagation();
 
   const imageStoreImages = imageStore.images;
-  const currentIndex = imageStoreImages.findIndex(
-    (item) => item === modal.image
-  );
+  const currentIndex = imageIndexInStore.value;
 
   if (currentIndex === -1) return;
 
@@ -64,6 +66,7 @@ const handlePagination = (
 
         <!-- Controls -->
         <div
+          v-if="imageIndexInStore !== -1"
           class="fixed inset-x-0 bottom-0 flex items-center justify-center w-full text-white lg:bottom-auto lg:justify-between"
         >
           <button
