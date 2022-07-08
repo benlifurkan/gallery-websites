@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { useImageModalStore } from "../stores/modal";
 
 const props = defineProps({
@@ -32,11 +32,10 @@ onBeforeUnmount(() => {
 });
 
 /* Methods */
-const getProxifiedImage = (): string => {
+const getProxifiedImage = computed(() => {
   return `https://proxy.duckduckgo.com/iu/?u=${encodeURIComponent(props.src)}`;
-};
+});
 
-const proxifiedImage = getProxifiedImage();
 const modal = useImageModalStore();
 
 const handleImageClick = () => {
@@ -49,13 +48,13 @@ const handleImageClick = () => {
   <div
     class="transition-all bg-center bg-cover cursor-pointer"
     :style="{
-      backgroundImage: `url('${proxifiedImage}')`,
+      backgroundImage: `url('${getProxifiedImage}')`,
     }"
     @click="handleImageClick"
   >
     <img
       v-if="props.putActualImage === true"
-      :src="proxifiedImage"
+      :src="getProxifiedImage"
       alt="gallery image"
       class="invisible md:hidden"
     />
