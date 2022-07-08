@@ -22,7 +22,7 @@ onBeforeMount(() => {
         </h1>
       </RouterLink>
 
-      <span class="text-lg font-light">{{ "'" }}ün fotoğraf galerisi</span>
+      <span class="text-lg font-light">'ün fotoğraf galerisi</span>
     </header>
 
     <main
