@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, onBeforeMount, onMounted } from "vue";
-import { useImageStore } from "../stores/images";
-import { useImageModalStore } from "../stores/modal";
-import { useBackgroundStore } from "../stores/background";
+import { useImageStore } from "@/stores/images";
+import { useImageModalStore } from "@/stores/modal";
+import { useBackgroundStore } from "@/stores/background";
 
 import ChevronLeft from "~icons/mdi/chevron-left";
 import ChevronRight from "~icons/mdi/chevron-right";
@@ -45,10 +45,16 @@ let listener: any;
 onMounted(() => {
   listener = window.addEventListener("keydown", (event) => {
     if (modal.isVisible) {
-      if (event.key === "ArrowLeft") {
-        handlePagination(null, "previous");
-      } else if (event.key === "ArrowRight") {
-        handlePagination(null, "next");
+      switch (event.key) {
+        case "ArrowLeft":
+          handlePagination(null, "previous");
+          break;
+        case "ArrowRight":
+          handlePagination(null, "next");
+          break;
+        case "Escape":
+          modal.toggle();
+          break;
       }
     }
   });
@@ -61,7 +67,7 @@ onBeforeMount(() => {
 
 <template>
   <Teleport to="body">
-    <transition name="fade" mode="out-in">
+    <Transition name="fade" mode="out-in">
       <div
         v-show="modal.isVisible"
         class="fixed inset-0 z-30 flex items-center justify-center bg-black/75"
@@ -85,10 +91,10 @@ onBeforeMount(() => {
         <!-- Controls -->
         <div
           v-if="imageIndexInStore !== -1"
-          class="fixed inset-x-0 bottom-0 flex items-center justify-center w-full text-white lg:bottom-auto lg:justify-between"
+          class="fixed inset-x-0 bottom-0 flex items-center justify-center w-full gap-4 mb-4 text-white"
         >
           <button
-            class="p-1 m-6 transition-opacity rounded-full shadow-md hover:opacity-50"
+            class="p-1 transition-all rounded-full shadow-md focus:outline-none hover:ring-1 ring-white"
             :class="backgroundStore.currentBackground"
             @click="(e) => handlePagination(e, 'previous')"
           >
@@ -96,7 +102,7 @@ onBeforeMount(() => {
           </button>
 
           <button
-            class="p-1 m-6 transition-opacity rounded-full shadow-md hover:opacity-50"
+            class="p-1 transition-opacity rounded-full shadow-md focus:outline-none hover:ring-1 ring-white"
             :class="backgroundStore.currentBackground"
             @click="(e) => handlePagination(e, 'next')"
           >
@@ -104,6 +110,6 @@ onBeforeMount(() => {
           </button>
         </div>
       </div>
-    </transition>
+    </Transition>
   </Teleport>
 </template>
