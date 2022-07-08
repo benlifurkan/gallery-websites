@@ -7,6 +7,11 @@ const props = defineProps({
     required: true,
     default: "",
   },
+  putActualImage: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const isOpen = ref(false);
@@ -40,6 +45,7 @@ const getProxifiedImage = (): string => {
     @click="isOpen = true"
   >
     <img
+      v-if="props.putActualImage === true"
       :src="getProxifiedImage()"
       alt="gallery image"
       class="invisible md:hidden"

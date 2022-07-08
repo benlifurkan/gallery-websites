@@ -6,7 +6,7 @@ const store = useImageStore();
 
 <template>
   <button
-    class="fixed bottom-0 right-0 flex items-center justify-center p-2 m-6 text-black bg-white rounded-full shadow-md"
+    class="fixed bottom-0 right-0 z-20 flex items-center justify-center p-2 m-6 text-black bg-white rounded-full shadow-md"
     @click="() => store.changeOrder()"
   >
     <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24">

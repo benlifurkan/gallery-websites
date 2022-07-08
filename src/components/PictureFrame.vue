@@ -33,7 +33,7 @@ const props = defineProps({
     class="flex flex-col px-4 pt-4 pb-6 mx-6 space-y-2 transition-transform bg-white shadow-md md:mx-0 hover:scale-105 hover:rotate-0"
     :class="getRandomRotateClass()"
   >
-    <Image :src="props.image" class="md:h-52 md:w-52" />
+    <Image :src="props.image" class="md:h-52 md:w-52" put-actual-image />
     <span v-if="caption" class="text-xs text-black/50">{{
       props.caption
     }}</span>
