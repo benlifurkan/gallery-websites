@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@iconify-json/ic': ^1.1.7
   '@iconify-json/mdi': ^1.1.25
+  '@types/node': ^18.0.3
   '@vitejs/plugin-vue': ^2.3.3
   autoprefixer: ^10.4.7
   pinia: ^2.0.14
@@ -25,6 +26,7 @@ dependencies:
 devDependencies:
   '@iconify-json/ic': 1.1.7
   '@iconify-json/mdi': 1.1.25
+  '@types/node': 18.0.3
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.13+vue@3.2.37
   autoprefixer: 10.4.7_postcss@8.4.14
   postcss: 8.4.14
@@ -113,6 +115,10 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@types/node/18.0.3:
+    resolution: {integrity: sha512-HzNRZtp4eepNitP+BD6k2L6DROIDG4Q0fm4x+dwfsr6LGmROENnok75VGw40628xf+iR24WeMFcHuuBDUAzzsQ==}
     dev: true
 
   /@vitejs/plugin-vue/2.3.3_vite@2.9.13+vue@3.2.37:
