@@ -1,18 +1,17 @@
 <script lang="ts" setup>
 import Image from "./Image.vue";
 
-const getRandomRotateClass = () => {
-  const classes = [
-    "-rotate-1",
-    "-rotate-2",
-    "-rotate-3",
-    "rotate-1",
-    "rotate-2",
-    "rotate-3",
-  ];
+const rotateClasses = [
+  "-rotate-1",
+  "-rotate-2",
+  "-rotate-3",
+  "rotate-1",
+  "rotate-2",
+  "rotate-3",
+];
 
-  return classes[Math.floor(Math.random() * classes.length)];
-};
+const getRandomRotateClass = () =>
+  rotateClasses[Math.floor(Math.random() * rotateClasses.length)];
 
 const props = defineProps({
   image: {
@@ -34,8 +33,8 @@ const props = defineProps({
     :class="getRandomRotateClass()"
   >
     <Image :src="props.image" class="md:h-52 md:w-52" put-actual-image />
-    <span v-if="caption" class="text-xs text-black/50">{{
-      props.caption
-    }}</span>
+    <span v-if="caption" class="text-xs text-black/50">
+      {{ props.caption }}
+    </span>
   </div>
 </template>
