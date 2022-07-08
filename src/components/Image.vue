@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useImageModalStore } from "../stores/modal";
 
 const props = defineProps({
   src: {
@@ -34,47 +35,30 @@ onBeforeUnmount(() => {
 const getProxifiedImage = (): string => {
   return `https://proxy.duckduckgo.com/iu/?u=${encodeURIComponent(props.src)}`;
 };
+
+const proxifiedImage = getProxifiedImage();
+const modal = useImageModalStore();
+
+const handleImageClick = () => {
+  modal.setImage(props.src);
+  modal.toggle();
+};
 </script>
 
 <template>
   <div
     class="transition-all bg-center bg-cover cursor-pointer"
     :style="{
-      backgroundImage: `url('${getProxifiedImage()}')`,
+      backgroundImage: `url('${proxifiedImage}')`,
     }"
-    @click="isOpen = true"
+    @click="handleImageClick"
   >
     <img
       v-if="props.putActualImage === true"
-      :src="getProxifiedImage()"
+      :src="proxifiedImage"
       alt="gallery image"
       class="invisible md:hidden"
     />
-
-    <Teleport to="body">
-      <transition name="fade" mode="out-in">
-        <div
-          v-show="isOpen"
-          class="fixed inset-0 z-10 flex items-center justify-center bg-black/75"
-          @click="isOpen = false"
-        >
-          <div @click="(e) => e.stopPropagation()">
-            <div
-              class="bg-center bg-cover rounded-xl"
-              :style="{
-                backgroundImage: `url('${getProxifiedImage()}')`,
-              }"
-            >
-              <img
-                :src="getProxifiedImage()"
-                alt="gallery image"
-                class="invisible max-h-[90vh] max-w-[90vw]"
-              />
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
   </div>
 </template>
 
