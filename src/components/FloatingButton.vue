@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useImageStore } from "../stores/images";
-
 const store = useImageStore();
 </script>
 

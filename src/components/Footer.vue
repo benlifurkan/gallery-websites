@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from "vue";
-import { useBackgroundStore } from "../stores/background";
+import { useBackgroundStore } from "@/stores/background";
 
 const store = useBackgroundStore();
 

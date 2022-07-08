@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { onBeforeMount } from "vue";
 import { useRoute } from "vue-router";
-import { useBackgroundStore } from "./stores/background";
+import { useBackgroundStore } from "@/stores/background";
 
-import Background from "./components/Background.vue";
-import Footer from "./components/Footer.vue";
-import FloatingButton from "./components/FloatingButton.vue";
-import Modal from "./components/Modal.vue";
+import Background from "@/components/Background.vue";
+import Footer from "@/components/Footer.vue";
+import FloatingButton from "@/components/FloatingButton.vue";
+import Modal from "@/components/Modal.vue";
 
 const route = useRoute();
 const store = useBackgroundStore();

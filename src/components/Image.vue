@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount, computed } from "vue";
-import { useImageModalStore } from "../stores/modal";
+import { useImageModalStore } from "@/stores/modal";
 
 const props = defineProps({
   src: {

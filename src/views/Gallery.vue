@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { onBeforeMount } from "vue";
-import { useImageStore } from "../stores/images";
+import { useImageStore } from "@/stores/images";
 
 // Components
-import PictureFrame from "../components/PictureFrame.vue";
+import PictureFrame from "@/components/PictureFrame.vue";
 
 const store = useImageStore();
 onBeforeMount(() => {

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import Image from "../components/Image.vue";
-import SocialBox from "../components/SocialBox.vue";
+import Image from "@/components/Image.vue";
+import SocialBox from "@/components/SocialBox.vue";
 
 import Instagram from "~icons/mdi/instagram";
 import Twitter from "~icons/mdi/twitter";
