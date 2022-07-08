@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed, onBeforeMount, onMounted } from "vue";
 import { useImageStore } from "../stores/images";
 import { useImageModalStore } from "../stores/modal";
 import { useBackgroundStore } from "../stores/background";
@@ -20,10 +20,10 @@ const imageIndexInStore = computed(() => {
 });
 
 const handlePagination = (
-  event: MouseEvent,
+  event: MouseEvent | null,
   direction: "previous" | "next"
 ) => {
-  event.stopPropagation();
+  event?.stopPropagation();
 
   const imageStoreImages = imageStore.images;
   const currentIndex = imageIndexInStore.value;
@@ -39,6 +39,24 @@ const handlePagination = (
 
   modal.setImage(nextItem);
 };
+
+/* Lifecycle */
+let listener: any;
+onMounted(() => {
+  listener = window.addEventListener("keydown", (event) => {
+    if (modal.isVisible) {
+      if (event.key === "ArrowLeft") {
+        handlePagination(null, "previous");
+      } else if (event.key === "ArrowRight") {
+        handlePagination(null, "next");
+      }
+    }
+  });
+});
+
+onBeforeMount(() => {
+  window.removeEventListener("keydown", listener);
+});
 </script>
 
 <template>
