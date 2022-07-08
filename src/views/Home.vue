@@ -48,7 +48,7 @@ const links = [
           />
         </div>
 
-        <div class="px-3 py-1 bg-white rounded-lg">
+        <div class="px-3 py-1 text-center bg-white rounded-lg">
           <h1 class="text-4xl font-bold text-black">Gülsüm Sayar</h1>
         </div>
       </header>
