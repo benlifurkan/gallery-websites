@@ -12,8 +12,11 @@ const route = useRoute();
 const store = useBackgroundStore();
 
 onBeforeMount(() => {
-  if (!localStorage) return;
-  store.checkStorageAndSetBackground(localStorage);
+  const item = localStorage.getItem(
+    "background-option"
+  ) as typeof store.backgrounds[number];
+
+  store.setBackground(item);
 });
 </script>
 
