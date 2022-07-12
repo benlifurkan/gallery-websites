@@ -19,11 +19,6 @@ const props = defineProps({
     required: true,
     default: "",
   },
-  caption: {
-    type: String,
-    required: false,
-    default: "",
-  },
 });
 </script>
 
@@ -33,8 +28,5 @@ const props = defineProps({
     :class="getRandomRotateClass()"
   >
     <Image :src="props.image" class="md:h-52 md:w-52" put-actual-image />
-    <span v-if="caption" class="text-xs text-black/50">
-      {{ props.caption }}
-    </span>
   </div>
 </template>
