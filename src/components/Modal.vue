@@ -103,7 +103,7 @@ onBeforeMount(() => {
           </button>
 
           <button
-            class="p-1 transition-opacity rounded-full shadow-md focus:outline-none hover:ring-1 ring-white"
+            class="p-1 transition-all rounded-full shadow-md focus:outline-none hover:ring-1 ring-white"
             :class="backgroundStore.currentBackground"
             @click="(e) => handlePagination(e, 'next')"
           >
