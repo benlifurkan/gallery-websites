@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { computed } from "vue";
 import { useImageModalStore } from "@/stores/modal";
 
 const props = defineProps({
@@ -13,22 +13,6 @@ const props = defineProps({
     required: false,
     default: false,
   },
-});
-
-const isOpen = ref(false);
-
-/* Lifecycle */
-let listener: any;
-onMounted(() => {
-  listener = window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      isOpen.value = false;
-    }
-  });
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("keydown", listener);
 });
 
 /* Methods */
@@ -60,15 +44,3 @@ const handleImageClick = () => {
     />
   </div>
 </template>
-
-<style lang="scss">
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
