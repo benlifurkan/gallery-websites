@@ -22,7 +22,7 @@ const getBackgroundWithoutCurrent = computed(() =>
           :key="background"
           class="w-6 h-6 transition-all rounded-full shadow-md hover:ring-0 ring-1 ring-white/50"
           :class="background"
-          @click="() => store.changeBackground(background)"
+          @click="() => store.setBackground(background)"
         />
       </div>
     </div>
