@@ -15,9 +15,9 @@ const getProxifiedImage = computed(
   () => `https://proxy.duckduckgo.com/iu/?u=${encodeURIComponent(modal.image)}`
 );
 
-const imageIndexInStore = computed(() => {
-  return imageStore.images.findIndex((item) => item === modal.image);
-});
+const imageIndexInStore = computed(() =>
+  imageStore.images.findIndex((item) => item === modal.image)
+);
 
 const handlePagination = (
   event: MouseEvent | null,
@@ -41,27 +41,28 @@ const handlePagination = (
 };
 
 /* Lifecycle */
-let listener: any;
-onMounted(() => {
-  listener = window.addEventListener("keydown", (event) => {
-    if (modal.isVisible) {
-      switch (event.key) {
-        case "ArrowLeft":
-          handlePagination(null, "previous");
-          break;
-        case "ArrowRight":
-          handlePagination(null, "next");
-          break;
-        case "Escape":
-          modal.toggle();
-          break;
-      }
+const handleKeyDown = (event: KeyboardEvent) => {
+  if (modal.isVisible) {
+    switch (event.key) {
+      case "ArrowLeft":
+        handlePagination(null, "previous");
+        break;
+      case "ArrowRight":
+        handlePagination(null, "next");
+        break;
+      case "Escape":
+        modal.toggle();
+        break;
     }
-  });
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("keydown", handleKeyDown);
 });
 
 onBeforeMount(() => {
-  window.removeEventListener("keydown", listener);
+  window.removeEventListener("keydown", handleKeyDown);
 });
 </script>
 
