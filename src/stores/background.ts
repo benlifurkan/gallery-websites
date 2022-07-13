@@ -17,7 +17,9 @@ export const useBackgroundStore = defineStore("background", {
     };
   },
   actions: {
-    setBackground(value: typeof backgrounds[number]) {
+    setBackground(value: typeof backgrounds[number] | null) {
+      if (!value) return;
+
       this.currentBackground = value;
       localStorage.setItem("background-option", value);
     },
