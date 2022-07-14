@@ -71,7 +71,7 @@ onBeforeMount(() => {
     <Transition name="fade" mode="out-in">
       <div
         v-show="modal.isVisible"
-        class="fixed inset-0 z-30 flex items-center justify-center bg-black/75"
+        class="fixed inset-0 z-30 flex items-center justify-center bg-black/75 backdrop-blur-sm"
         @click="() => modal.toggle()"
       >
         <div @click="(e) => e.stopPropagation()">
