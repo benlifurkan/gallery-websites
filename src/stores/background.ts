@@ -21,6 +21,8 @@ export const useBackgroundStore = defineStore("background", {
       if (!value) return;
 
       this.currentBackground = value;
+      document?.body?.setAttribute("class", value);
+
       localStorage.setItem("background-option", value);
     },
   },
