@@ -30,11 +30,11 @@ const getBackgroundWithoutCurrent = computed(() =>
     <p class="text-center font-extralight">
       by
       <a
-        href="https://eggsy.xyz"
+        href="https://instagram.com/benli.dev"
         rel="noreferrer"
         target="_blank"
         class="border-b"
-        >EGGSY</a
+        >benli.dev</a
       >
     </p>
   </footer>
